@@ -1,0 +1,122 @@
+@import "tailwindcss";
+
+@theme {
+  --font-press-start: "press-start-2p", monospace;
+  --font-vt323: "vt323", monospace;
+
+  --color-green: #5dbb3f;
+  --color-green-dark: #3a7d28;
+  --color-green-light: #8fd46e;
+
+  --color-dirt: #8b6340;
+  --color-dirt-dark: #5a3e26;
+
+  --color-wood: #7b5c30;
+
+  --color-stone: #7b7b7b;
+  --color-stone-dark: #4a4a4a;
+
+  --color-sky: #6ec6f5;
+  --color-night: #0d1117;
+
+  --color-panel: #1a1f2e;
+  --color-panel-border: #2d3550;
+
+  --color-text: #e8e0c8;
+  --color-text-dim: #9a9070;
+
+  --color-gold: #ffd700;
+  --color-emerald: #00d26a;
+
+  --color-red: #e03c2e;
+  --color-red-dark: #8c1a12;
+
+  --color-book: #8b4513;
+
+  --color-killed-bg: #1a0a0a;
+  --color-killed-border: #4a1010;
+}
+
+@layer base {
+  @font-face {
+    font-family: "press-start-2p";
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url("./assets/fonts/pressStart2P-latin.woff2") format("woff2");
+    unicode-range:
+      U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC,
+      U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193,
+      U+2212, U+2215, U+FEFF, U+FFFD;
+  }
+
+  @font-face {
+    font-family: "vt323";
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url("./assets/fonts/vt323-latin.woff2") format("woff2");
+    unicode-range:
+      U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC,
+      U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193,
+      U+2212, U+2215, U+FEFF, U+FFFD;
+  }
+
+  body {
+    background-image:
+      radial-gradient(
+        circle at 20% 50%,
+        rgba(93, 187, 63, 0.03) 0%,
+        transparent 50%
+      ),
+      radial-gradient(
+        circle at 80% 20%,
+        rgba(0, 210, 106, 0.04) 0%,
+        transparent 40%
+      );
+  }
+
+  /* Header Styles */
+  header {
+    background: linear-gradient(180deg, #0f1520 0%, #1a2035 100%);
+  }
+
+  .text-shadow-green {
+    text-shadow: 2px 2px 0 var(--color-green-dark);
+  }
+
+  .pixel-border {
+    border-bottom: 4px solid var(--color-green-dark);
+  }
+
+  .villager-icon {
+    width: 48px;
+    height: 48px;
+    image-rendering: pixelated;
+    flex-shrink: 0;
+  }
+
+  .stat {
+    text-align: center;
+    font-size: 14px;
+    color: var(--text-dim);
+  }
+
+  .stat strong {
+    display: block;
+    font-size: 22px;
+    color: var(--text);
+  }
+
+  /* Main */
+  .section-label {
+    font-family: "press-start-2p";
+    font-size: 9px;
+    letter-spacing: 1px;
+    padding: 10px 14px;
+    margin-bottom: 16px;
+    border-left: 4px solid;
+    background: rgba(255, 255, 255, 0.03);
+    text-transform: uppercase;
+  }
+}
