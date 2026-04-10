@@ -1,0 +1,67 @@
+[
+  {
+    "id": "armorer",
+    "name": "Armorer",
+    "workstation": "blast_furnace"
+  },
+  {
+    "id": "butcher",
+    "name": "Butcher",
+    "workstation": "smoker"
+  },
+  {
+    "id": "cartographer",
+    "name": "Cartographer",
+    "workstation": "cartography_table"
+  },
+  {
+    "id": "cleric",
+    "name": "Cleric",
+    "workstation": "brewing_stand"
+  },
+  {
+    "id": "farmer",
+    "name": "Farmer",
+    "workstation": "composter"
+  },
+  {
+    "id": "fisherman",
+    "name": "Fisherman",
+    "workstation": "barrel"
+  },
+  {
+    "id": "fletcher",
+    "name": "Fletcher",
+    "workstation": "fletching_table"
+  },
+  {
+    "id": "leatherworker",
+    "name": "Leatherworker",
+    "workstation": "cauldron"
+  },
+  {
+    "id": "librarian",
+    "name": "Librarian",
+    "workstation": "lectern"
+  },
+  {
+    "id": "mason",
+    "name": "Mason",
+    "workstation": "stonecutter"
+  },
+  {
+    "id": "shepherd",
+    "name": "Shepherd",
+    "workstation": "loom"
+  },
+  {
+    "id": "toolsmith",
+    "name": "Toolsmith",
+    "workstation": "smithing_table"
+  },
+  {
+    "id": "weaponsmith",
+    "name": "Weaponsmith",
+    "workstation": "grindstone"
+  }
+]
