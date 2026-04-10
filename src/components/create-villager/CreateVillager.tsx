@@ -1,59 +1,91 @@
-import { useVillagerStore } from "@/store";
+import type { CreateVillagerProps } from "../componentsProps";
+import { Button, FormGroupLabel, Input, SectionLabel } from "../ui";
+import { Field, FieldGroup } from "@/components/ui/field";
+import {
+  Select,
+  SelectContent,
+  SelectGroup,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+import jobs from "@/data/VillagerJobs.json";
+export type VillagerType = (typeof jobs)[number]["id"];
+const CreateVillager = ({
+  alive,
+  dead,
+  idCount,
+  addVillager,
+  killVillager,
+  reviveVillager,
+}: CreateVillagerProps) => {
+  console.log({ alive, dead, idCount });
 
-const CreateVillager = () => {
-  const { alive, dead, idCount, addVillager, killVillager, reviveVillager } =
-    useVillagerStore();
   return (
-    <div className="bg-panel border-2 border-panel-border border-t-4 border-t-green-dark p-5 shadow-[0_4px_0_rgba(0,0,0,0.4)]">
-      <div className="section-label">⬛ Spawn New Villager</div>
-
-      <div className="flex flex-wrap items-end gap-3">
+    <div className="container">
+      {/* Librarian */}
+      <SectionLabel variant="green">⬛ Spawn New Librarian</SectionLabel>
+      <div className="flex flex-col  gap-3">
+        <FormGroupLabel>Villager Type</FormGroupLabel>
+        <FieldGroup className="w-full max-w-32">
+          <Field>
+            <Select>
+              <SelectTrigger>
+                <SelectValue />
+              </SelectTrigger>
+              <SelectContent position="popper">
+                <SelectGroup>
+                  {jobs.map((job) => (
+                    <SelectItem key={job.id} value={job.id}>
+                      {job.name}
+                    </SelectItem>
+                  ))}
+                </SelectGroup>
+              </SelectContent>
+            </Select>
+          </Field>
+        </FieldGroup>
+      </div>
+      <div className="flex flex-wrap items-end gap-3 mt-4">
         <div className="flex flex-col gap-1">
-          <label className="text-text-dim text-sm">Villager Name</label>
-          <input
+          <FormGroupLabel>Villager Name</FormGroupLabel>
+          <Input
             type="text"
+            className="w-56"
             placeholder="e.g. Booksworth"
             maxLength={30}
-            className="w-55 bg-night border-2 border-panel-border border-b-[3px] border-b-stone-dark text-text font-mono text-xl px-3 py-2 outline-none focus:border-emerald font-vt323"
           />
         </div>
 
-        <button className="bg-green-dark text-white border-b-4 border-b-[#214d14] px-5 py-2 font-mono text-xl active:translate-y-0.5 active:border-b-0 active:shadow-none hover:bg-green transition">
-          [ SPAWN ]
-        </button>
+        <Button variant="create">[ SPAWN ]</Button>
       </div>
 
       {/* Trades */}
       <div className="mt-4">
-        <div className="font-press-start text-[8px] text-gold border-l-4 border-gold px-3 py-2 mb-3">
-          📚 Add Trades
-        </div>
+        <SectionLabel variant="yellow">📚 Add Trades</SectionLabel>
 
         <div className="flex flex-wrap items-center gap-2">
           <div className="flex flex-col gap-1">
-            <label className="text-dim text-sm">Item / Book</label>
-            <input
-              type="text"
-              placeholder="e.g. Sharpness V"
-              maxLength={40}
-              className="w-40 bg-night border-2 border-panel-border border-b-[3px] border-b-stone-dark text-text font-mono text-xl px-3 py-2 outline-none focus:border-emerald"
-            />
+            <FormGroupLabel>Item / Book</FormGroupLabel>
+            <Input type="text" placeholder="e.g. Mending" />
           </div>
 
           <div className="text-gold text-2xl pb-1">→</div>
 
           <div className="flex flex-col gap-1">
-            <label className="text-dim text-sm">Price</label>
-            <input
-              type="text"
-              placeholder="e.g. 12"
-              className="w-22.5 bg-night border-2 border-panel-border border-b-[3px] border-b-stone-dark text-text font-mono text-xl px-3 py-2 outline-none focus:border-emerald"
+            <FormGroupLabel>Price (emeralds)</FormGroupLabel>
+            <Input
+              type="number"
+              placeholder="e.g. 5"
+              className="w-24"
+              min={1}
+              max={100}
             />
           </div>
 
-          <button className="bg-[#3d2e0c] text-gold border-b-4 border-b-[#221800] px-4 py-2 font-mono text-lg hover:bg-[#5a4010] active:translate-y-0.5 active:border-b-0 transition">
-            + ADD
-          </button>
+          <Button className="mt-6" variant="add">
+            + ADD{" "}
+          </Button>
         </div>
 
         <div className="flex flex-wrap gap-2 mt-3 min-h-9"></div>
